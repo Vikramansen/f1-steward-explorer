@@ -1,0 +1,77 @@
+{
+  "notes": "Written before tuning. Only 'dev' queries were used while adjusting weights and parser rules. 'heldout' queries were run once, after tuning stopped. wrong_sources ['*'] means any returned document is wrong.",
+  "queries": [
+    {
+      "id": "q01", "split": "dev", "kind": "decision", "tags": ["headline", "two-incident"],
+      "query": "Why did Norris get five seconds in Austin in 2024, while Verstappen got ten seconds at Turn 4 in Mexico the next week?",
+      "expected": ["usa24-d69", "mex24-d47"], "expect_insufficient": false,
+      "wrong_sources": ["mex24-d44", "mex24-d43"]
+    },
+    {
+      "id": "q02", "split": "dev", "kind": "decision", "tags": ["paraphrase"],
+      "query": "Which McLaren driver was given 5s at COTA for passing Verstappen around the outside and going off track?",
+      "expected": ["usa24-d69"], "expect_insufficient": false,
+      "wrong_sources": ["usa24-d43"]
+    },
+    {
+      "id": "q03", "split": "dev", "kind": "decision", "tags": ["no-driver-names"],
+      "query": "At the 2024 Mexico City race, a car attempting a pass on the outside was ahead at the apex of Turn 4 and was pushed off the track. What did the defending driver get?",
+      "expected": ["mex24-d47"], "expect_insufficient": false,
+      "wrong_sources": ["mex24-d49", "mex24-d44", "mex24-d43"]
+    },
+    {
+      "id": "q04", "split": "dev", "kind": "decision", "tags": ["turn4-vs-turn8"],
+      "query": "What was Verstappen penalised for at Turn 8 against Norris in Mexico City 2024?",
+      "expected": ["mex24-d44"], "expect_insufficient": false,
+      "wrong_sources": ["mex24-d47", "mex24-d43"]
+    },
+    {
+      "id": "q05", "split": "dev", "kind": "decision", "tags": ["turn4-vs-turn8", "ambiguous"],
+      "query": "Verstappen 10 second penalty for the Norris battle in Mexico",
+      "expected": ["mex24-d47", "mex24-d44"], "expect_insufficient": false,
+      "wrong_sources": ["mex24-d43"]
+    },
+    {
+      "id": "q06", "split": "dev", "kind": "decision", "tags": ["recalled"],
+      "query": "Show me Doc 43 from the Mexico City GP about Verstappen at Turn 4",
+      "expected": ["mex24-d47"], "expect_insufficient": false,
+      "wrong_sources": ["mex24-d43", "usa24-d43"]
+    },
+    {
+      "id": "q07", "split": "dev", "kind": "authority", "tags": ["wrong-year-source", "unavailable-text"],
+      "query": "Which driving standards guideline applied to overtaking on the outside at the 2024 United States Grand Prix?",
+      "expected": [], "expect_insufficient": true,
+      "wrong_sources": ["dsg-2025-v41", "dsg-2026-v01"]
+    },
+    {
+      "id": "q08", "split": "dev", "kind": "decision", "tags": ["unsupported"],
+      "query": "Why did Hamilton get a penalty at Turn 1 in Austin 2024?",
+      "expected": [], "expect_insufficient": true,
+      "wrong_sources": ["*"]
+    },
+    {
+      "id": "q09", "split": "heldout", "kind": "decision", "tags": ["paraphrase"],
+      "query": "Gasly was level at the apex in Austin but dropped back before the exit and went off. Why only a five second penalty?",
+      "expected": ["usa24-d66"], "expect_insufficient": false,
+      "wrong_sources": []
+    },
+    {
+      "id": "q10", "split": "heldout", "kind": "decision", "tags": ["no-driver-names"],
+      "query": "In the 2024 Austin sprint, a car overtaking on the inside at Turn 12 forced the other car off at the exit. What was the penalty?",
+      "expected": ["usa24-d43"], "expect_insufficient": false,
+      "wrong_sources": ["usa24-d65", "usa24-d67"]
+    },
+    {
+      "id": "q11", "split": "heldout", "kind": "decision", "tags": ["wrong-year", "unsupported"],
+      "query": "What penalty did Norris get at the 2023 Mexico City Grand Prix?",
+      "expected": [], "expect_insufficient": true,
+      "wrong_sources": ["*"]
+    },
+    {
+      "id": "q12", "split": "heldout", "kind": "authority", "tags": ["wrong-year-source"],
+      "query": "Which Sporting Regulations article on leaving the track applied at the Austin race in October 2024?",
+      "expected": ["sr-2024-i7"], "expect_insufficient": false,
+      "wrong_sources": ["sr-2025-i2", "dsg-2025-v41", "dsg-2026-v01"]
+    }
+  ]
+}

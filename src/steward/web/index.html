@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>F1 Steward Decision Explorer</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>F1 Steward Decision Explorer</h1>
+  <p class="sub">Independent portfolio project built on public FIA documents. Not affiliated with
+    or endorsed by the FIA or Formula 1.</p>
+</header>
+
+<main>
+  <section class="ask">
+    <label for="question">Question</label>
+    <textarea id="question" rows="2"></textarea>
+    <div class="buttons">
+      <button id="run-live">Run live</button>
+      <span class="or">or</span>
+      <select id="replay-select" aria-label="Recorded run"></select>
+      <button id="run-replay" class="secondary">Replay recorded run (no model, no key)</button>
+    </div>
+    <p id="model-line" class="muted"></p>
+  </section>
+
+  <div id="banner" class="banner hidden"></div>
+  <div id="loading" class="hidden">Running…</div>
+
+  <section id="results" class="hidden">
+    <h2>Rulings retrieved by the tools</h2>
+    <div id="rulings" class="rulings"></div>
+
+    <h2>Answer <span id="status-badge" class="badge"></span></h2>
+    <p class="muted">The server checks citations and selected facts, not full entailment. Each
+      claim must cite passages returned by <code>get_passages</code> in this run, from an eligible
+      source. Events, drivers, turns, penalty lengths, and named rules in the claim must match the
+      cited passages. A claim can pass these checks and still overstate what a passage says.</p>
+    <ul id="claims" class="claims"></ul>
+    <details id="removed-wrap" class="hidden">
+      <summary>Removed claims (<span id="removed-count"></span>)</summary>
+      <ul id="removed" class="claims removed"></ul>
+    </details>
+
+    <details id="why">
+      <summary>Why this source?</summary>
+      <div id="why-body"></div>
+    </details>
+
+    <details id="trace">
+      <summary>Tool trace (<span id="budget"></span>)</summary>
+      <div id="trace-body"></div>
+    </details>
+
+    <details id="sources">
+      <summary>Source manifest</summary>
+      <div id="sources-body"></div>
+    </details>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>

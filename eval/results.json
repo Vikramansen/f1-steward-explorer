@@ -1,0 +1,555 @@
+{
+  "summary": {
+    "keyword_bm25": {
+      "dev": {
+        "n": 8,
+        "hit_at_3": 0.5,
+        "wrong_source_rate": 0.75
+      },
+      "heldout": {
+        "n": 4,
+        "hit_at_3": 0.5,
+        "wrong_source_rate": 0.5
+      },
+      "all": {
+        "n": 12,
+        "hit_at_3": 0.5,
+        "wrong_source_rate": 0.667
+      },
+      "latency_ms": {
+        "median": 0.1,
+        "p95": 0.15,
+        "samples": 360
+      }
+    },
+    "filters_only": {
+      "dev": {
+        "n": 8,
+        "hit_at_3": 1.0,
+        "wrong_source_rate": 0.125
+      },
+      "heldout": {
+        "n": 4,
+        "hit_at_3": 1.0,
+        "wrong_source_rate": 0.0
+      },
+      "all": {
+        "n": 12,
+        "hit_at_3": 1.0,
+        "wrong_source_rate": 0.083
+      },
+      "latency_ms": {
+        "median": 0.28,
+        "p95": 0.39,
+        "samples": 360
+      }
+    },
+    "filters_plus_facts": {
+      "dev": {
+        "n": 8,
+        "hit_at_3": 1.0,
+        "wrong_source_rate": 0.0
+      },
+      "heldout": {
+        "n": 4,
+        "hit_at_3": 1.0,
+        "wrong_source_rate": 0.0
+      },
+      "all": {
+        "n": 12,
+        "hit_at_3": 1.0,
+        "wrong_source_rate": 0.0
+      },
+      "latency_ms": {
+        "median": 0.29,
+        "p95": 0.43,
+        "samples": 360
+      }
+    }
+  },
+  "per_query": [
+    {
+      "id": "q01",
+      "split": "dev",
+      "kind": "decision",
+      "tags": [
+        "headline",
+        "two-incident"
+      ],
+      "query": "Why did Norris get five seconds in Austin in 2024, while Verstappen got ten seconds at Turn 4 in Mexico the next week?",
+      "expected": [
+        "usa24-d69",
+        "mex24-d47"
+      ],
+      "keyword_bm25": {
+        "top3": [
+          "mex24-d47",
+          "mex24-d44",
+          "usa24-d69"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": [
+          "mex24-d44"
+        ]
+      },
+      "filters_only": {
+        "top3": [
+          "usa24-d69",
+          "mex24-d47"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [
+          "usa24-d69",
+          "mex24-d47"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q02",
+      "split": "dev",
+      "kind": "decision",
+      "tags": [
+        "paraphrase"
+      ],
+      "query": "Which McLaren driver was given 5s at COTA for passing Verstappen around the outside and going off track?",
+      "expected": [
+        "usa24-d69"
+      ],
+      "keyword_bm25": {
+        "top3": [
+          "mex24-d44",
+          "mex24-d47",
+          "dsg-2026-v01"
+        ],
+        "insufficient": false,
+        "hit": false,
+        "wrong": []
+      },
+      "filters_only": {
+        "top3": [
+          "usa24-d69"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [
+          "usa24-d69"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q03",
+      "split": "dev",
+      "kind": "decision",
+      "tags": [
+        "no-driver-names"
+      ],
+      "query": "At the 2024 Mexico City race, a car attempting a pass on the outside was ahead at the apex of Turn 4 and was pushed off the track. What did the defending driver get?",
+      "expected": [
+        "mex24-d47"
+      ],
+      "keyword_bm25": {
+        "top3": [
+          "mex24-d44",
+          "mex24-d45",
+          "mex24-d47"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": [
+          "mex24-d44"
+        ]
+      },
+      "filters_only": {
+        "top3": [
+          "mex24-d45",
+          "mex24-d47",
+          "mex24-d49"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": [
+          "mex24-d49"
+        ]
+      },
+      "filters_plus_facts": {
+        "top3": [
+          "mex24-d47"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q04",
+      "split": "dev",
+      "kind": "decision",
+      "tags": [
+        "turn4-vs-turn8"
+      ],
+      "query": "What was Verstappen penalised for at Turn 8 against Norris in Mexico City 2024?",
+      "expected": [
+        "mex24-d44"
+      ],
+      "keyword_bm25": {
+        "top3": [
+          "mex24-d44",
+          "mex24-d47",
+          "usa24-d69"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": [
+          "mex24-d47"
+        ]
+      },
+      "filters_only": {
+        "top3": [
+          "mex24-d44"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [
+          "mex24-d44"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q05",
+      "split": "dev",
+      "kind": "decision",
+      "tags": [
+        "turn4-vs-turn8",
+        "ambiguous"
+      ],
+      "query": "Verstappen 10 second penalty for the Norris battle in Mexico",
+      "expected": [
+        "mex24-d47",
+        "mex24-d44"
+      ],
+      "keyword_bm25": {
+        "top3": [
+          "mex24-d50",
+          "usa24-d66",
+          "mex24-d44"
+        ],
+        "insufficient": false,
+        "hit": false,
+        "wrong": []
+      },
+      "filters_only": {
+        "top3": [
+          "mex24-d44",
+          "mex24-d47"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [
+          "mex24-d44",
+          "mex24-d47"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q06",
+      "split": "dev",
+      "kind": "decision",
+      "tags": [
+        "recalled"
+      ],
+      "query": "Show me Doc 43 from the Mexico City GP about Verstappen at Turn 4",
+      "expected": [
+        "mex24-d47"
+      ],
+      "keyword_bm25": {
+        "top3": [
+          "mex24-d47",
+          "mex24-d44",
+          "mex24-d43"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": [
+          "mex24-d43"
+        ]
+      },
+      "filters_only": {
+        "top3": [
+          "mex24-d47"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [
+          "mex24-d47"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q07",
+      "split": "dev",
+      "kind": "authority",
+      "tags": [
+        "wrong-year-source",
+        "unavailable-text"
+      ],
+      "query": "Which driving standards guideline applied to overtaking on the outside at the 2024 United States Grand Prix?",
+      "expected": "insufficient evidence",
+      "keyword_bm25": {
+        "top3": [
+          "dsg-2026-v01",
+          "dsg-2025-v41",
+          "usa24-d65"
+        ],
+        "insufficient": false,
+        "hit": false,
+        "wrong": [
+          "dsg-2026-v01",
+          "dsg-2025-v41"
+        ]
+      },
+      "filters_only": {
+        "top3": [],
+        "insufficient": true,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [],
+        "insufficient": true,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q08",
+      "split": "dev",
+      "kind": "decision",
+      "tags": [
+        "unsupported"
+      ],
+      "query": "Why did Hamilton get a penalty at Turn 1 in Austin 2024?",
+      "expected": "insufficient evidence",
+      "keyword_bm25": {
+        "top3": [
+          "mex24-d47",
+          "mex24-d44",
+          "usa24-d69"
+        ],
+        "insufficient": false,
+        "hit": false,
+        "wrong": [
+          "mex24-d47",
+          "mex24-d44",
+          "usa24-d69"
+        ]
+      },
+      "filters_only": {
+        "top3": [],
+        "insufficient": true,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [],
+        "insufficient": true,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q09",
+      "split": "heldout",
+      "kind": "decision",
+      "tags": [
+        "paraphrase"
+      ],
+      "query": "Gasly was level at the apex in Austin but dropped back before the exit and went off. Why only a five second penalty?",
+      "expected": [
+        "usa24-d66"
+      ],
+      "keyword_bm25": {
+        "top3": [
+          "usa24-d66",
+          "usa24-d69",
+          "mex24-d45"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_only": {
+        "top3": [
+          "usa24-d66",
+          "usa24-d43"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [
+          "usa24-d66",
+          "usa24-d43"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q10",
+      "split": "heldout",
+      "kind": "decision",
+      "tags": [
+        "no-driver-names"
+      ],
+      "query": "In the 2024 Austin sprint, a car overtaking on the inside at Turn 12 forced the other car off at the exit. What was the penalty?",
+      "expected": [
+        "usa24-d43"
+      ],
+      "keyword_bm25": {
+        "top3": [
+          "usa24-d43",
+          "mex24-d47",
+          "usa24-d65"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": [
+          "usa24-d65"
+        ]
+      },
+      "filters_only": {
+        "top3": [
+          "usa24-d43",
+          "usa24-d44"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [
+          "usa24-d43",
+          "usa24-d44"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q11",
+      "split": "heldout",
+      "kind": "decision",
+      "tags": [
+        "wrong-year",
+        "unsupported"
+      ],
+      "query": "What penalty did Norris get at the 2023 Mexico City Grand Prix?",
+      "expected": "insufficient evidence",
+      "keyword_bm25": {
+        "top3": [
+          "usa24-d69",
+          "mex24-d47",
+          "mex24-d44"
+        ],
+        "insufficient": false,
+        "hit": false,
+        "wrong": [
+          "usa24-d69",
+          "mex24-d47",
+          "mex24-d44"
+        ]
+      },
+      "filters_only": {
+        "top3": [],
+        "insufficient": true,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [],
+        "insufficient": true,
+        "hit": true,
+        "wrong": []
+      }
+    },
+    {
+      "id": "q12",
+      "split": "heldout",
+      "kind": "authority",
+      "tags": [
+        "wrong-year-source"
+      ],
+      "query": "Which Sporting Regulations article on leaving the track applied at the Austin race in October 2024?",
+      "expected": [
+        "sr-2024-i7"
+      ],
+      "keyword_bm25": {
+        "top3": [
+          "mex24-d44",
+          "usa24-d69",
+          "usa24-d66"
+        ],
+        "insufficient": false,
+        "hit": false,
+        "wrong": []
+      },
+      "filters_only": {
+        "top3": [
+          "sr-2024-i7"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      },
+      "filters_plus_facts": {
+        "top3": [
+          "sr-2024-i7"
+        ],
+        "insufficient": false,
+        "hit": true,
+        "wrong": []
+      }
+    }
+  ],
+  "repeats": 30,
+  "index_meta": {
+    "built_at": "2026-11-12T10:20:06+00:00",
+    "excluded": "[]",
+    "manifest_version": "1"
+  }
+}
